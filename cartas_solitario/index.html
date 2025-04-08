@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Your Luck Solitary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <div class="vidas">Vidas: <span id="vidas">3</span></div>
+    <div class="contador">Contador de cartas levantadas: <span id="contador">1</span></div>
+
+    <div class="botones">
+        <button class="alta" id="alta" style="height: 100px; width: 200px;" onclick="jugar('alta')">Alta</button>
+        <button class="baja" id="baja" style="height: 100px; width: 200px;" onclick="jugar('baja')">Baja</button>
+        <button class="mismo_color" id="mismo-color" style="height: 100px; width: 200px;" onclick="jugar('mismo-color')">Mismo color</button>
+        <button class="distinto_color" id="distinto-color" style="height: 100px; width: 200px;" onclick="jugar('distinto-color')">Distinto color</button>
+        <button class="suma-menor-11" id="suma-menor-11" style="height: 100px; width: 200px;" onclick="jugar('suma-menor-11')">Suma < 11</button>
+        <button class="comodin" id="comodin" style="height: 100px; width: 200px;" onclick="jugar('comodin')">Comodín</button>
+    </div>
+    <div class="p">
+        <button class="plantarse" style="height: 60px; width: 200px;" onclick="plantarse()">Plantarse</button>
+    </div>
+    <div class="carta-actual">
+        <img class="carta" id="carta-actual" src="cartas/3-treboles.png" />
+    </div>
+    <div class="colores">
+        <div class="negro">Negro:<span>♠️ ♣️</span></div>
+        <div class="rojo">Rojo:<span>♥️ ♦️</span></div>
+    </div>
+    <div class="orden">
+        <div class="numeros">El orden de las cartas:<span> A(1), 2(2), 3(3), 4(4), 5(5), 6(6), 7(7), 8(8), 9(9), 10(10), J(10), Q(10), K(10),</span></div>
+    </div>    
+
+    <script>
+        const cartas = [
+        { valor: 'A', palo: 'negro', imagen: 'a-picas.png', orden: 1 },
+            { valor: 'A', palo: 'negro', imagen: 'a-trebol.png', orden: 1 },
+            { valor: 'A', palo: 'rojo', imagen: 'a-flechanegra.png', orden: 1 },
+            { valor: '2', palo: 'rojo', imagen: '2corazonesrojos.png', orden: 2 },
+            { valor: '2', palo: 'negro', imagen: '2picasnegras.png', orden: 2 },
+            { valor: '2', palo: 'negro', imagen: 'download.png', orden: 2 },
+            { valor: '2', palo: 'rojo', imagen: '2romborojo.png', orden: 2 },
+            { valor: '3', palo: 'rojo', imagen: '3 corazones.png', orden: 3 },
+            { valor: '3', palo: 'negro', imagen: '3picas.png', orden: 3 },
+            { valor: '3', palo: 'rojo', imagen: '3romborojo.png', orden: 3 },
+            { valor: '3', palo: 'negro', imagen: '3-treboles.png', orden: 3 },
+            { valor: '4', palo: 'rojo', imagen: '4corazones.png', orden: 4 },
+            { valor: '4', palo: 'negro', imagen: '4picas.png', orden: 4 },
+            { valor: '4', palo: 'rojo', imagen: '4rombos.png', orden: 4 },
+            { valor: '4', palo: 'negro', imagen: '4treboles.png', orden: 4 },
+            { valor: '5', palo: 'rojo', imagen: '5corazones.png', orden: 5 },
+            { valor: '5', palo: 'negro', imagen: '5picas.png', orden: 5 },
+            { valor: '5', palo: 'rojo', imagen: '5rombos.png', orden: 5 },
+            { valor: '5', palo: 'negro', imagen: '5treboles.png', orden: 5 },
+            { valor: '6', palo: 'rojo', imagen: '6corazones.png', orden: 6 },
+            { valor: '6', palo: 'negro', imagen: '6picas.png', orden: 6 },
+            { valor: '6', palo: 'rojo', imagen: '6rombos.png', orden: 6 },
+            { valor: '6', palo: 'negro', imagen: '6treboles.png', orden: 6 },
+            { valor: '7', palo: 'rojo', imagen: '7corazones.png', orden: 7 },
+            { valor: '7', palo: 'negro', imagen: '7picas.png', orden: 7 },
+            { valor: '7', palo: 'rojo', imagen: '7rombos.png', orden: 7 },
+            { valor: '7', palo: 'negro', imagen: '7treboles.png', orden: 7 },
+            { valor: '8', palo: 'rojo', imagen: '8corazones.png', orden: 8 },
+            { valor: '8', palo: 'negro', imagen: '8picas.png', orden: 8 },
+            { valor: '8', palo: 'rojo', imagen: '8rombos.png', orden: 8 },
+            { valor: '8', palo: 'negro', imagen: '8treboles.png', orden: 8 },
+            { valor: '9', palo: 'rojo', imagen: '9corazones.png', orden: 9 },
+            { valor: '9', palo: 'negro', imagen: '9picas.png', orden: 9 },
+            { valor: '9', palo: 'rojo', imagen: '9rombos.png', orden: 9 },
+            { valor: '9', palo: 'negro', imagen: '9treboles.png', orden: 9 },
+            { valor: '10', palo: 'rojo', imagen: '10-corazones.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: '10-rombos.png', orden: 10 },
+            { valor: '10', palo: 'negro', imagen: '10-treboles.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: '10picas.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: 'J-corazon.png', orden: 10 },
+            { valor: '10', palo: 'negro', imagen: 'J-picas.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: 'J-rombo.png', orden: 10 },
+            { valor: '10', palo: 'negro', imagen: 'J-trebol.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: 'K-corazon.png', orden: 10 },
+            { valor: '10', palo: 'negro', imagen: 'K-picas.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: 'K-rombo.png', orden: 10 },
+            { valor: '10', palo: 'negro', imagen: 'K-trebol.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: 'Q-corazon.png', orden: 10 },
+            { valor: '10', palo: 'negro', imagen: 'Q-picas.png', orden: 10 },
+            { valor: '10', palo: 'rojo', imagen: 'Q-rombo.png', orden: 10 },
+            { valor: '10', palo: 'negro', imagen: 'Q-trebol.png', orden: 10 },
+         
+        ];
+
+        let cartaActual = obtenerCartaAleatoria(); // Inicializa con una carta aleatoria
+        let contadores = {
+            alta: 15,
+            baja: 15,
+            'mismo-color': 5,
+            'distinto-color': 5,
+            'suma-menor-11': 10,
+            comodin: 3
+        };
+        let vidas = 3;
+        let cartasLevantadas = 1;
+        const maxCartas = 52;
+
+        function jugar(accion) {
+            if (vidas <= 0) {
+                alert('¡Fin de la partida! No puedes jugar más. Reinicia la página para jugar de nuevo.');
+                return;
+            }
+
+            if (contadores[accion] === 0) return;
+
+            if (cartasLevantadas >= maxCartas) {
+                alert("¡Felicidades, has podido llegar al máximo de cartas, Enhorabuena de la buena!");
+                return;
+            }
+
+            const nuevaCarta = obtenerCartaAleatoria();
+            const resultado = evaluarJugada(accion, nuevaCarta);
+
+            contadores[accion]--;
+            cartasLevantadas++;
+            document.getElementById('contador').textContent = cartasLevantadas;
+
+            if (resultado === 'exito') {
+                contadores[accion]++;
+            } else {
+                vidas--;
+                document.getElementById('vidas').textContent = vidas;
+                if (vidas === 0) {
+                    alert('¡Fin de la partida! Puntuación: 0');
+                    deshabilitarBotones();
+                }
+            }
+
+            document.getElementById(accion).disabled = contadores[accion] === 0;
+            document.getElementById('carta-actual').src = `cartas/${nuevaCarta.imagen}`;
+            cartaActual = nuevaCarta; // Actualiza la carta actual a la nueva
+        }
+
+        function plantarse() {
+            alert(`¡Fin de la partida! Puntuación: ${cartasLevantadas}`);
+            deshabilitarBotones();
+        }
+
+        function deshabilitarBotones() {
+            const botones = document.querySelectorAll('.botones button');
+            botones.forEach(boton => {
+                boton.disabled = true;
+            });
+        }
+
+        function obtenerCartaAleatoria() {
+            const indice = Math.floor(Math.random() * cartas.length);
+            return cartas[indice];
+        }
+
+        function evaluarJugada(accion, nuevaCarta) {
+            switch (accion) {
+                case 'alta':
+                    return (cartaActual.orden <= nuevaCarta.orden) ? 'exito' : 'fallo';
+                case 'baja':
+                    return (cartaActual.orden > nuevaCarta.orden) ? 'exito' : 'fallo'; 
+                case 'mismo-color':
+                    return (cartaActual.palo === nuevaCarta.palo) ? 'exito' : 'fallo';
+                case 'distinto-color':
+                    return (cartaActual.palo !== nuevaCarta.palo) ? 'exito' : 'fallo';
+                case 'suma-menor-11':
+                    const sumaCartas = getValorCarta(cartaActual) + getValorCarta(nuevaCarta);
+                    return (sumaCartas < 11) ? 'exito' : 'fallo';
+                case 'comodin':
+                    return 'exito'; // Se considera un éxito porque no se evalúa
+                default:
+                    return 'empate';
+            }
+        }
+
+        function getValorCarta(carta) {
+            switch (carta.valor) {
+                case 'A':
+                    return 1;
+                case 'J':
+                case 'Q':
+                case 'K':
+                    return 10;
+                default:
+                    return parseInt(carta.valor);
+            }
+        }
+
+        // Inicia la partida con una carta aleatoria
+        cartaActual = obtenerCartaAleatoria();
+        document.getElementById('carta-actual').src = `cartas/${cartaActual.imagen}`;
+        alert('El objetivo del juego es llegar a levantar 52 cartas sin perder todas tus vidas, buena suerte');
+
+    </script>
+</body>
+</html>

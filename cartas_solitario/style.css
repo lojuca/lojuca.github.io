@@ -1,0 +1,210 @@
+body{
+    background: url(fondo/background.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;	
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+    
+}
+
+.carta-actual{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.alta{
+  border: 2px solid whitesmoke;
+  color: white;
+  padding: 14px 28px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color:rgb(2, 112, 202); 
+  transition: box-shadow 0.3s ease-in-out;
+}
+.alta:hover{
+    box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.3);
+}
+.alta:active {
+    transform: scale(0.9); /* Reduce ligeramente el tamaño del botón cuando se hace clic */
+  }
+
+.baja{
+  border: 2px solid whitesmoke;
+  color: white;
+  padding: 14px 28px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color: rgb(2, 112, 202); 
+  transition: box-shadow 0.3s ease-in-out;
+}
+.baja:hover{
+    box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.3);
+
+}
+
+.baja:active {
+    transform: scale(0.9);
+}
+
+.mismo_color{
+  border: 2px solid whitesmoke;
+  color: white;
+  padding: 0px 0px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color:rgb(2, 112, 202);; 
+  transition: box-shadow 0.3s ease-in-out;
+}
+.mismo_color:hover{
+    box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mismo_color:active {
+    transform: scale(0.9);
+}
+
+.distinto_color{
+  border: 2px solid whitesmoke;
+  color: white;
+  padding: 0px 0px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color:rgb(2, 112, 202);; 
+  transition: box-shadow 0.3s ease-in-out;
+}
+.distinto_color:hover{
+    box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.distinto_color:active {
+    transform: scale(0.9);
+}
+
+.suma-menor-11{
+  border: 2px solid whitesmoke;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color:rgb(2, 112, 202);; 
+  transition: box-shadow 0.3s ease-in-out;
+}
+.suma-menor-11:hover{
+    box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.suma-menor-11:active {
+    transform: scale(0.9);
+}
+
+.comodin{
+  border: 2px solid whitesmoke;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color:rgb(2, 112, 202);; 
+  transition: box-shadow 0.3s ease-in-out;
+}
+.comodin:hover{
+    box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.comodin:active {
+    transform: scale(0.9);
+}
+
+.suma-menor-11:active {
+    transform: scale(0.9);
+}
+
+.plantarse{
+  border: 2px solid whitesmoke;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 30px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-color:rgb(134, 5, 5);; 
+  transition: box-shadow 0.3s ease-in-out;
+  margin-top: 10px;
+  
+}
+.plantarse:hover{
+    box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.plantarse:active {
+    transform: scale(0.9);
+}
+
+.botones{
+    text-align: center;
+    margin-top: 10px;
+    
+}
+.p{
+    text-align: center;
+}
+
+.vidas{
+    text-align: left; 
+font-family: Arial Black; 
+font-weight: bold; 
+font-size: 30px; 
+color: #fff; 
+text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+.contador{
+    text-align: left; 
+font-family: Arial Black; 
+font-weight: bold; 
+font-size: 30px; 
+color: #fff; 
+text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+  .carta{
+    border: 2px solid black;
+    border-radius: 21px;
+  }
+  
+  .colores {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-size: 20px;
+    position: absolute; /* Permite el posicionamiento en relación al body */
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde la derecha */
+    text-align: right; /* Alinea el texto a la derecha */
+  }
+  .orden {
+    position: absolute; 
+    left: 10px; 
+    top: 540px; 
+    padding: 10px; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+
+}
+
+ 
+  
+  
+
+
+  
