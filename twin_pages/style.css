@@ -1,0 +1,22 @@
+body{
+    background-image:url(imagenes/fondo_CAFE.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-attachment: scroll;
+}
+
+div{
+    background-color:burlywood;
+    max-width: 600px;
+    margin-top: 20px;
+    margin-left: 110px;
+}
+
+h1{
+    text-align: center;
+}
+
+
+.footer{
+    text-align: center;
+}
