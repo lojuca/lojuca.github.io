@@ -2,63 +2,174 @@ body{
     background-image:url(imagenes/fondo_CAFE.jpg);
     background-repeat: no-repeat;
     background-attachment:fixed;
-    background-attachment: scroll;
     font-family: sans-serif;
     padding: 20px;
+    background-size: cover;
 }
 
 div{
     background-color:burlywood;
-    width: 70%;
+    width: 65%;
     margin: auto;
     padding: 4px;
     margin-top: 12px;
     text-align: center;
-   
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    overflow-wrap: break-word; /* Ajusta el texto para que no se corte */
+    word-wrap: break-word; /* Compatibilidad adicional */
+    word-break: break-word; /* Divide palabras largas si es necesario */
 }
+   
+
 
 h1{
     text-align: center;
     font-size: 40px;
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin-top: 3%;
+
 }
 
 h2{
     font-size: 30px;
     text-align: center;
+    height: 3px;
+    margin: 5%;
 }
 
 
 .footer{
     text-align: center;
+    margin: auto;
 }
 
 p{
     text-align: center;
+    margin: auto;
 }
 
 h3{
     text-align: center;
     font-style: italic;
+    height: 20px;
+    margin: auto;
+    margin-top: 2%;
 }
 
 .articulos{
     display: flex;
     padding: 5px 30px   ;
     justify-content: space-between;
+    margin-top: 4%;
+    margin-bottom: 5px;
+    
     
 }
 
 .articulos > * {
-    margin: 0 -125px; /* Aumenta la separación entre los elementos */
+    margin: 0 -130%; /* Aumenta la separación entre los elementos */
 }
 
 
 hr{
     border: none;
-    border-top: 4px solid #802c2c;
-    margin: 10px 0;
+    border-top: 5px solid #953434;
+    margin: auto; /*hace que se centre la barra*/
+    margin-top: 3%;
+    width: 92%;
+    
+
+}
+
+.menu{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    margin: auto;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.cafe{
+    height: 30px;
+}
+
+.taza{
+    height: 150px;
+    margin-top: 20px;
+
+}
+.tarta{
+
+    margin-top: 40px;
 }
 
 
+.menu_setas{
+    margin-top: -100px;
+}
+.postres{
+   margin-top: -30px;
+}
+
+.menu {
+    width: 100%; /* Cambia de un ancho fijo a un porcentaje */
+    max-width: 1200px; /* Establece un ancho máximo para pantallas grandes */
+    margin: auto; /* Centra el contenedor */
+    padding: 20px; /* Agrega un padding para mantener espacio interno */
+   
+}
+
+.producto1{
+    margin-top: -25%;
+}
+.producto2{
+    margin-top: -5%;
+}
+.ubicacion{
+    margin-top: 2%;
+}
+
+.enlace a{
+    color: orange;  
+    transition: color 0.3s ease;
+}
+
+.enlace a:hover{
+    color: red; 
+}
+
+.enlace a:active{
+    color:white
+}
+
+
+
+/* Ajustes para pantallas grandes (ordenadores) */
+@media (min-width: 1000px) {
+    div {
+        width: 50%; /* Reduce el ancho para pantallas grandes */
+    }
+
+    h1 {
+        font-size: 50px; /* Aumenta el tamaño de la fuente */
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .menu {
+        width: 100%; /* Ajusta el ancho del menú */
+        max-width: 1000px; /* Establece un ancho máximo */
+        height: 100%;
+    }
+
+    .producto1{
+        margin-top: -15%;
+    }
+
+    .articulos > * {
+        margin: 0 -255%; /* Aumenta la separación entre los elementos */
+    }
+}
