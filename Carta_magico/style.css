@@ -1,0 +1,11 @@
+.base{
+    background-color: goldenrod;
+    width: 400px;
+    height: 560px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+¨.nombre{
+margin-top: 30px;
+}
