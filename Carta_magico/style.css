@@ -13,6 +13,7 @@ body {
     position: relative;
     padding: 10px;
     box-sizing: border-box;
+    border: 3px solid black;
 }
 
 .nombre {
@@ -29,15 +30,17 @@ body {
 }
 
 .imagen {
-    width: 345px;
+    width: 340px;
     height: 310px;
     object-fit: cover;
+    border: 2px solid black;
+    border-radius: 5px;
     
 }
 
 .num_estrellas {
     position: absolute;
-    top: 20px;
+    top: 7px;
     width: 85%;
     display: flex;
     justify-content: space-between;
@@ -47,7 +50,7 @@ body {
 .blanco,
 .blanco1 {
     height: 30px;
-    width: 90px;
+    width: 145px;
     border-radius: 10px;
     border: 5px solid goldenrod;
     background-color: white;
@@ -55,7 +58,7 @@ body {
 
 .descripcion {
     position: relative;
-    width: 345px;
+    width: 340px;
     height: 120px;
     margin: 20px auto 0;
 }
@@ -64,6 +67,8 @@ body {
     width: 100%;
     height: 130%;
     object-fit: cover;
+    border: 2px solid black;   
+    border-radius: 5px; 
 }
 
 .descripcion_carta {
@@ -73,4 +78,23 @@ body {
     margin: 0;
     color: black;
     font-weight: bold;
+}
+
+.numero{
+    position: absolute;
+    top: 10px;
+    right: 255px;
+    margin: 0;
+    color: black;
+    font-weight: bold;
+}
+
+.estrellas{
+    position: absolute;
+    top: 7px;
+    right: 30px;
+    margin: 0;
+    color: black;
+    font-weight: bold;
+    
 }
