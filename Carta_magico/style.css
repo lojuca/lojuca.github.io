@@ -1,7 +1,8 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: #f4f4f4;
+    font-style: oblique;
 }
 
 .base {
@@ -41,7 +42,7 @@ body {
 .num_estrellas {
     position: absolute;
     top: 7px;
-    width: 85%;
+    width: 89%;
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
@@ -83,7 +84,7 @@ body {
 .numero{
     position: absolute;
     top: 10px;
-    right: 255px;
+    right: 270px;
     margin: 0;
     color: black;
     font-weight: bold;
@@ -97,4 +98,26 @@ body {
     color: black;
     font-weight: bold;
     
+}
+.texto_descripcion{
+    margin: -140px 10px;
+}
+
+.atributo{
+    background-color: white;
+    border: 1px solid black;
+    height: 400px;
+    width: 16px;
+    margin: -420px 363px ;
+    position: absolute;
+    border-radius: 5px;
+    
+
+}
+
+.texto_atributo{
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    margin: 100px -17px;
+    letter-spacing: 10px;
 }
