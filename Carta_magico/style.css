@@ -1,8 +1,7 @@
 body {
     margin: 0;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #f4f4f4;
-    font-style: oblique;
+    font-family: NCLMaxipower-Demo;
+    font-weight: bolder;
 }
 
 .base {
@@ -15,11 +14,23 @@ body {
     padding: 10px;
     box-sizing: border-box;
     border: 3px solid black;
+    box-shadow: 0 8px 24px 0 rgba(0,0,0,0.35), 0 1.5px 4px 0 rgba(255,215,0,0.25);
+     background: linear-gradient(135deg, #f7b945 0%, #ffe066 15%, #fad503 35%, #deb332 60%, #eace91 100%);
+
+     /* efecto de sombra*/
+    box-shadow:
+        0 12px 32px 0 rgba(0,0,0,0.35),
+        0 2px 8px 0 rgba(255,215,0,0.25),
+        0 0 24px 20px #ffe063 inset;
+   
 }
 
 .nombre {
-    margin: 10px 20px;
-    font-weight: bold;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 25.5px;
+    margin: -2px;
+
 }
 
 .contenedor_imagen {
@@ -46,6 +57,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+    opacity: 0.9; /*efecto de transparencia*/
 }
 
 .blanco,
@@ -54,7 +66,7 @@ body {
     width: 145px;
     border-radius: 10px;
     border: 5px solid goldenrod;
-    background-color: white;
+    
 }
 
 .descripcion {
@@ -83,11 +95,11 @@ body {
 
 .numero{
     position: absolute;
-    top: 10px;
-    right: 270px;
+    top: 5px;
+    right: 265px;
     margin: 0;
     color: black;
-    font-weight: bold;
+    font-size: 23px;
 }
 
 .estrellas{
@@ -101,23 +113,45 @@ body {
 }
 .texto_descripcion{
     margin: -140px 10px;
+    font-size: 18px;
+    
+    
 }
 
 .atributo{
-    background-color: white;
+    background-image: url(imagenes/fondo_gris_metalico.jpg);
     border: 1px solid black;
     height: 400px;
     width: 16px;
-    margin: -420px 363px ;
+    margin: -420px 364px ;
     position: absolute;
     border-radius: 5px;
     
-
 }
 
 .texto_atributo{
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    margin: 100px -17px;
+    writing-mode: vertical-lr;
+    text-orientation: upright; /*hace el texto vertical*/
+    margin: 60px -22.3px;
     letter-spacing: 10px;
+    font-size: 19px;
+    font-weight: bold;
+
+}
+
+.nombre_artista{
+    margin: 42px 23px;
+    text-align: center;
+
+}
+.container_creador{
+    height: 0px;
+    margin: -6px;
+    text-align: center;
+}
+.nombre_jugador{
+    font-size: 12px;
+    height: 0px;
+    margin: 10px;
+    
 }
