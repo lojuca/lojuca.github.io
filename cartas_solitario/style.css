@@ -202,46 +202,7 @@ text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 
 }
 
-@media (max-width: 950px) and (orientation: landscape) {
-  .carta {
-    width: 32vw;
-    min-width: 180px;
-    max-width: 40vw;
-    border-radius: 10px;
-    margin: 1vw 1vw;
-    display: inline-block;
-    vertical-align: top;
-  }
 
-  .carta-actual {
-    margin-top: 1vw;
-  }
-
-  .botones {
-    margin-top: 1vw;
-  }
-
-  .alta, .baja, .mismo_color, .distinto_color, .suma-menor-11, .comodin, .plantarse {
-    font-size: 13px;
-    padding: 4px 6px;
-    border-radius: 4px;
-    margin: 1px 0;
-  }
-
-  .vidas, .contador {
-    font-size: 13px;
-  }
-
-  .colores, .orden {
-    font-size: 10px;
-    padding: 2px;
-  }
-
-  .p {
-    font-size: 13px;
-  }
-}
-  
 
 
   
