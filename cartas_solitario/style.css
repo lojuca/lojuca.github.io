@@ -202,54 +202,41 @@ text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 
 }
 
-@media (max-width: 600px) {
-  body {
-    background-size: cover;
-    overflow: auto;
-  }
-
+@media (max-width: 900px) and (orientation: landscape) {
   .carta {
-    width: 90vw;
+    width: 45vw;
     min-width: 0;
-    max-width: 98vw;
-    border-radius: 12px;
-    margin: 10px auto;
+    max-width: 60vw;
+    border-radius: 10px;
+    margin: 2vw auto;
+    display: inline-block;
+    vertical-align: top;
   }
 
   .carta-actual {
-    margin-top: 5vw;
-  }
-
-  .alta, .baja, .mismo_color, .distinto_color, .suma-menor-11, .comodin, .plantarse {
-    font-size: 18px;
-    padding: 8px 10px;
-    border-radius: 6px;
-    margin: 4px 0;
-  }
-
-  .vidas, .contador {
-    font-size: 18px;
-  }
-
-  .colores {
-    font-size: 14px;
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .orden {
-    font-size: 14px;
-    left: 5px;
-    top: auto;
-    bottom: 10px;
-    padding: 5px;
+    margin-top: 2vw;
   }
 
   .botones {
-    margin-top: 5vw;
+    margin-top: 2vw;
+  }
+
+  .alta, .baja, .mismo_color, .distinto_color, .suma-menor-11, .comodin, .plantarse {
+    font-size: 16px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    margin: 2px 0;
+  }
+
+  .vidas, .contador {
+    font-size: 16px;
+  }
+
+  .colores, .orden {
+    font-size: 12px;
+    padding: 3px;
   }
 }
-  
   
 
 
