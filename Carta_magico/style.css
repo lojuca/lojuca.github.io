@@ -18,10 +18,7 @@ body {
      background: linear-gradient(135deg, #f7b945 0%, #ffe066 15%, #fad503 35%, #deb332 60%, #eace91 100%);
 
      /* efecto de sombra*/
-    box-shadow:
-        0 12px 32px 0 rgba(0,0,0,0.35),
-        0 2px 8px 0 rgba(255,215,0,0.25),
-        0 0 24px 20px #ffe063 inset;
+     box-shadow: 20px 30px 30px rgba(0, 0, 0, 0.3);
    
 }
 
@@ -140,7 +137,7 @@ body {
 }
 
 .nombre_artista{
-    margin: 42px 23px;
+    margin: 41px 23px;
     text-align: center;
 
 }
