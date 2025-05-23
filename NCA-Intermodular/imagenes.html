@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Neon</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+            position: absolute;
+            top: 0px;
+            text-align: center;
+            color: #00ffcc;
+            text-shadow: 0 0 20px rgb(0, 255, 204);
+            font-size: 3em;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Permite que las imágenes se ajusten en varias filas */
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            margin: 20px;
+            flex: 1 1 400px; /* Aumenta el tamaño base de las imágenes */
+            max-width: 400px; /* Ajusta el tamaño máximo */
+        }
+
+        .image-container:hover {
+            transform: scale(1.05);
+            border-color: #ff00ff;
+            box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+        }
+    </style>
+</head>
+<body>
+    <h1>Galería de Imágenes</h1>
+    <div class="gallery">
+        <div class="image-container">
+            <a href="img/imagen1.png" target="_blank">
+                <img src="img/imagen1.png" alt="Imagen 1">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="img/imagen2.png" target="_blank">
+                <img src="img/imagen2.png" alt="Imagen 2">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="img/imagen3.png" target="_blank">
+                <img src="img/imagen3.png" alt="Imagen 3">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
