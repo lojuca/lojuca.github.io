@@ -1,0 +1,180 @@
+    /* --- 1. VARIABLES FÁCILES (CAMBIA LOS COLORES AQUÍ) --- */
+        :root {
+            --color-fondo-pagina: #f0f2f5;       /* Gris muy clarito */
+            --color-tarjeta: #ffffff;            /* Blanco puro */
+            --color-texto-principal: #333333;    /* Gris oscuro para leer bien */
+            --color-texto-suave: #666666;        /* Para descripciones */
+            --color-azul-moderno: #3b82f6;       /* El color de los botones/enlaces */
+            --radio-bordes: 15px;                /* Qué tan redondas son las esquinas */
+            
+            /* Sombras: La clave para que se vea moderno */
+            --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --sombra-flotante: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* --- 2. ESTILOS GENERALES --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--color-fondo-pagina);
+            font-family: system-ui, -apple-system, sans-serif; /* Fuente del sistema, siempre se ve bien */
+            color: var(--color-texto-principal);
+            padding: 20px;
+        }
+
+        /* --- 3. ENCABEZADO --- */
+        header {
+            text-align: center;
+            padding: 50px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { color: var(--color-texto-suave); font-size: 1.1rem; }
+
+        /* --- 4. GRID DE ASIGNATURAS --- */
+        .contenedor-asignaturas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Se adapta al móvil solo */
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Estilo de la tarjeta de asignatura (Botón grande) */
+        .tarjeta-asignatura {
+            background-color: var(--color-tarjeta);
+            padding: 40px 20px;
+            border-radius: var(--radio-bordes);
+            box-shadow: var(--sombra-suave);
+            text-decoration: none; /* Quitar subrayado del link */
+            color: var(--color-texto-principal);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .tarjeta-asignatura:hover {
+            transform: translateY(-5px); /* Sube un poquito al pasar el mouse */
+            box-shadow: var(--sombra-flotante);
+            border-color: var(--color-azul-moderno);
+        }
+
+        .tarjeta-asignatura h2 { font-size: 1.5rem; margin-bottom: 10px; }
+        .tarjeta-asignatura span { color: var(--color-azul-moderno); font-weight: bold; font-size: 0.9rem; }
+
+
+        /* --- 5. VENTANA MODAL (EL TRUCO SIN JS) --- */
+        
+        /* Por defecto, la ventana modal está oculta */
+        .modal-fondo {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
+            backdrop-filter: blur(5px); /* Efecto borroso detrás */
+            z-index: 1000;
+            
+            /* Aquí está el truco para ocultarlo */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Cuando el ID está en la URL (target), se muestra */
+        .modal-fondo:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* La cajita blanca dentro del modal */
+        .modal-contenido {
+            background: var(--color-tarjeta);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh; /* Para que no sea más alta que la pantalla */
+            overflow-y: auto; /* Scroll si hay mucho texto */
+            padding: 40px;
+            border-radius: var(--radio-bordes);
+            box-shadow: var(--sombra-flotante);
+            position: relative;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Botón de cerrar (X) */
+        .boton-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #999;
+            font-weight: bold;
+        }
+        .boton-cerrar:hover { color: red; }
+
+        /* --- 6. ESTILOS DE LOS RETOS (ACORDEÓN) --- */
+        /* Usamos <details> y <summary> que son nativos de HTML */
+        details {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            list-style: none; /* Quita el triangulito por defecto */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Truco para poner un + y un - */
+        summary::after { content: "+"; font-size: 1.2rem; color: var(--color-azul-moderno); }
+        details[open] summary::after { content: "-"; }
+        
+        details[open] summary {
+            background-color: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .info-reto { padding: 20px; }
+
+        /* Estilos bonitos para los apartados dentro del reto */
+        .apartado { margin-bottom: 20px; }
+        .titulo-apartado {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--color-texto-suave);
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Etiquetas para el glosario */
+        .tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+        
+        .nota-box {
+            background-color: #f0fdf4; /* Verde muy claro */
+            padding: 15px;
+            border-left: 4px solid #4ade80; /* Línea verde */
+            border-radius: 4px;
+        }
