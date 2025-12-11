@@ -83,7 +83,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 50px;
         }
 
         /* Cuando el ID está en la URL (target), se muestra */
@@ -97,9 +97,9 @@
             background: var(--color-tarjeta);
             width: 100%;
             max-width: 800px;
-            max-height: 90vh; /* Para que no sea más alta que la pantalla */
+            max-height: 85vh; /* Para que no sea más alta que la pantalla */
             overflow-y: auto; /* Scroll si hay mucho texto */
-            padding: 40px;
+            padding: 25px;
             border-radius: var(--radio-bordes);
             box-shadow: var(--sombra-flotante);
             position: relative;
@@ -124,12 +124,12 @@
             background-color: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             overflow: hidden;
         }
 
         summary {
-            padding: 15px;
+            padding: 10px;
             cursor: pointer;
             font-weight: bold;
             list-style: none; /* Quita el triangulito por defecto */
@@ -139,7 +139,7 @@
         }
         
         /* Truco para poner un + y un - */
-        summary::after { content: "+"; font-size: 1.2rem; color: var(--color-azul-moderno); }
+        summary::after { content: "+"; font-size: 0.95rem; color: var(--color-azul-moderno); }
         details[open] summary::after { content: "-"; }
         
         details[open] summary {
@@ -147,15 +147,15 @@
             border-bottom: 1px solid #e2e8f0;
         }
 
-        .info-reto { padding: 20px; }
+        .info-reto { padding: 10px; }
 
         /* Estilos bonitos para los apartados dentro del reto */
-        .apartado { margin-bottom: 20px; }
+        .apartado { margin-bottom: 5px; }
         .titulo-apartado {
             font-size: 0.8rem;
             text-transform: uppercase;
             color: var(--color-texto-suave);
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             letter-spacing: 1px;
             border-bottom: 1px solid #eee;
         }
