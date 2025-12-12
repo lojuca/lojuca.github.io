@@ -1,196 +1,397 @@
 
-        :root {
-    /* --- COLORES MODO NOCHE (ESTRELLAS) --- */
-    --color-fondo-pagina: #0f172a;       /* Azul muy oscuro (casi negro) */
-    --color-tarjeta: #1e293b;            /* Azul grisáceo oscuro para las cajas */
+:root {
+    --color-fondo-oscuro: #0f172a;
     
-    /* --- TEXTOS --- */
-    --color-texto-principal: #f1f5f9;    /* Blanco casi puro para leer bien */
-    --color-texto-suave: #94a3b8;        /* Gris azulado para descripciones */
-    --color-azul-moderno: #38bdf8;       /* Un azul cian eléctrico "Cyberpunk" */
+    /* Tarjetas y Cajas */
+    --color-tarjeta: #1e293b;            
+    --color-borde: #475569;             
     
-    --radio-bordes: 15px;
+    /* Textos */
+    --color-texto-principal: #f1f5f9;    
+    --color-texto-suave: #94a3b8;        
+    --color-azul-moderno: #38bdf8;      
     
-    /* --- SOMBRAS (Más oscuras para que se noten en el fondo negro) --- */
+    /* Sombras */
     --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --sombra-flotante: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+    
+    --radio-bordes: 15px;
 }
 
-        /* --- 2. ESTILOS GENERALES --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-    background-color: var(--color-fondo-pagina);
-    
-    /* TRUCO CSS: Creamos estrellas con degradados circulares */
-    background-image: 
-        radial-gradient(white 1px, transparent 1px), 
-        radial-gradient(white 2px, transparent 2px);
-        
-    /* Tamaño y posición para que parezcan aleatorias */
-    background-size: 50px 50px, 100px 100px;
-    background-position: 0 0, 25px 25px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
     
     font-family: system-ui, -apple-system, sans-serif;
     color: var(--color-texto-principal);
+    
+    min-height: 100vh;
     padding: 20px;
-    min-height: 100vh; /* Asegura que las estrellas cubran toda la pantalla */
+    
+    /*  overflow-x hidden para evitar scroll lateral por estrellas,*/
+    
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-        /* --- 3. ENCABEZADO --- */
-        header {
-            text-align: center;
-            padding: 50px 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        header p { color: var(--color-texto-suave); font-size: 1.1rem; }
+header {
+    text-align: center;
+    padding: 3px 0;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10; /* Para que esté por encima de las estrellas */
+}
 
-        /* --- 4. GRID DE ASIGNATURAS --- */
-        .contenedor-asignaturas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Se adapta al móvil solo */
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+header h1 { font-size: 2.5rem; margin-bottom: 10px;color: yellow ;font-size: 3rem;text-transform: uppercase;letter-spacing: 2px; }
+header p { color: #e2e8f0; font-size: 1.3rem;font-weight: bold }
 
-        /* Estilo de la tarjeta de asignatura (Botón grande) */
-        .tarjeta-asignatura {
-            background-color: var(--color-tarjeta);
-            padding: 40px 20px;
-            border-radius: var(--radio-bordes);
-            box-shadow: var(--sombra-suave);
-            text-decoration: none; /* Quitar subrayado del link */
-            color: var(--color-texto-principal);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: center;
-            border: 1px solid transparent;
-        }
+.contenedor-asignaturas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
 
-        .tarjeta-asignatura:hover {
-            transform: translateY(-5px); /* Sube un poquito al pasar el mouse */
-            box-shadow: var(--sombra-flotante);
-            border-color: var(--color-azul-moderno);
-        }
+/* Tarjetas principales */
+.tarjeta-asignatura {
+    background-color: var(--color-tarjeta);
+    padding: 40px 20px;
+    border-radius: var(--radio-bordes);
+    box-shadow: var(--sombra-suave);
+    text-decoration: none;
+    color: var(--color-texto-principal);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    text-align: center;
+    border: 1px solid transparent;
+}
 
-        .tarjeta-asignatura h2 { font-size: 1.5rem; margin-bottom: 10px; }
-        .tarjeta-asignatura span { color: var(--color-azul-moderno); font-weight: bold; font-size: 0.9rem; }
+.tarjeta-asignatura:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-flotante);
+    border-color: var(--color-azul-moderno);
+}
+
+.tarjeta-asignatura h2 { font-size: 1.5rem; margin-bottom: 10px; }
+.tarjeta-asignatura span { color: var(--color-azul-moderno); font-weight: bold; font-size: 0.9rem; }
+
+.modal-fondo {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    
+    /* Oculto por defecto */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* clic cuando se pulse */
+.modal-fondo:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-contenido {
+    background: var(--color-tarjeta);
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 90vh; 
+    overflow-y: auto; 
+    padding: 25px;
+    border-radius: var(--radio-bordes);
+    box-shadow: var(--sombra-flotante);
+    position: relative;
+    border: 1px solid var(--color-borde);
+}
+
+/* Scrollbar personalizada para el modal */
+.modal-contenido::-webkit-scrollbar { width: 8px; }
+.modal-contenido::-webkit-scrollbar-track { background: #0f172a; }
+.modal-contenido::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
 
 
-        /* --- 5. VENTANA MODAL (EL TRUCO SIN JS) --- */
-        
-        /* Por defecto, la ventana modal está oculta */
-        .modal-fondo {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
-            backdrop-filter: blur(5px); /* Efecto borroso detrás */
-            z-index: 1000;
-            
-            /* Aquí está el truco para ocultarlo */
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px;
-        }
+.boton-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--color-texto-suave);
+    font-weight: bold;
+    line-height: 1;
+}
+.boton-cerrar:hover { color: #ef4444; } /* Rojo al pasar el mouse */
 
-        /* Cuando el ID está en la URL (target), se muestra */
-        .modal-fondo:target {
-            opacity: 1;
-            pointer-events: auto;
-        }
+details {
+    background-color: #334155;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
 
-        /* La cajita blanca dentro del modal */
-        .modal-contenido {
-            background: var(--color-tarjeta);
-            width: 100%;
-            max-width: 800px;
-            max-height: 85vh; /* Para que no sea más alta que la pantalla */
-            overflow-y: auto; /* Scroll si hay mucho texto */
-            padding: 25px;
-            border-radius: var(--radio-bordes);
-            box-shadow: var(--sombra-flotante);
-            position: relative;
-            border: 1px solid #e5e7eb;
-        }
+summary {
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        /* Botón de cerrar (X) */
-        .boton-cerrar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: #999;
-            font-weight: bold;
-        }
-        .boton-cerrar:hover { color: red; }
+summary::after { content: "+"; font-size: 1.1rem; color: var(--color-azul-moderno); }
+details[open] summary::after { content: "-"; }
 
-        /* --- 6. ESTILOS DE LOS RETOS (ACORDEÓN) --- */
-        /* Usamos <details> y <summary> que son nativos de HTML */
-        details {
-            background-color: #334155; /* Fondo gris oscuro para el reto cerrado */
-            border: 1px solid #475569;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            overflow: hidden;
-        }
-
-        summary {
-            padding: 15px;
-            cursor: pointer;
-            font-weight: bold;
-            list-style: none; /* Quita el triangulito por defecto */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        /* Truco para poner un + y un - */
-        summary::after { content: "+"; font-size: 0.95rem; color: var(--color-azul-moderno); }
-        details[open] summary::after { content: "-"; }
-        
-        details[open] summary {
-    background-color: #1e293b; /* Color de la tarjeta al abrirse */
-    border-bottom: 1px solid #475569;
+details[open] summary {
+    background-color: #1e293b;
+    border-bottom: 1px solid var(--color-borde);
     color: var(--color-azul-moderno);
 }
 
-        .info-reto { padding: 10px; }
+.info-reto { padding: 15px; }
 
-        /* Estilos bonitos para los apartados dentro del reto */
-        .apartado { margin-bottom: 5px; }
-        .titulo-apartado {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--color-texto-suave);
-            margin-bottom: 3px;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        /* Etiquetas para el glosario */
-        .tag {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 5px;
-            margin-top: 5px;
-        }
-        
-        .nota-box {
-            background-color: #f0fdf4; /* Verde muy claro */
-            padding: 15px;
-            border-left: 4px solid #4ade80; /* Línea verde */
-            border-radius: 4px;
-        }
+/* Apartados internos */
+.apartado { margin-bottom: 15px; }
+.titulo-apartado {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #475569;
+}
+
+/* Etiquetas (Tags) */
+.tag {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--color-azul-moderno);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+/* Caja de informacion */
+.nota-box {
+    background-color: rgba(74, 222, 128, 0.1); /* Verde transparente */
+    padding: 15px;
+    border-left: 4px solid #4ade80;
+    border-radius: 4px;
+    color: #ffffff; /* Texto blanco para que se lea */
+    margin-top: 10px;
+}
+
+.estrella {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: -1; /* Detrás de todo */
+    
+    /* Animación infinita hacia arriba */
+    animation-name: moverHaciaArriba;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes moverHaciaArriba {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, white, transparent);
+    animation: shoot 2s infinite ease-in;
+    opacity: 0;
+    z-index: -1;
+}
+
+/*  3 estrellas fugaces distintas */
+.shooting-star:nth-child(1) { top: 20%; left: -100px; animation-delay: 1s; }
+.shooting-star:nth-child(2) { top: 35%; left: -100px; animation-delay: 5s; }
+.shooting-star:nth-child(3) { top: 50%; left: -100px; animation-delay: 10s; }
+
+@keyframes shoot {
+    0% {
+        transform: translateX(0) translateY(0) rotate(25deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(120vw) translateY(50vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+
+.descripcion h2{
+    margin-top: 30px;
+    color: var(--color-azul-moderno);
+    line-height: 1.6;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+     
+}
+
+.descripcion p{
+    color: #e2e8f0;
+}
+
+.trabajos h2{
+    font-size: 2rem;
+    margin-bottom: 0px;
+    color: var(--color-azul-moderno); 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 30px;
+}
+
+.herramientas {
+    max-width: 800px;
+    margin: 25px auto; /* Separación arriba y abajo */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.herramientas h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--color-azul-moderno); 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* La rejilla de iconos */
+.toolbox-grid {
+    display: grid;
+    /* Esto hace que se adapten automáticamente (mínimo 100px ancho) */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* Cada tarjetita individual */
+.tool-card {
+    background-color: rgba(30, 41, 59, 0.7); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column; /* Icono arriba, texto abajo */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+
+.tool-card:hover {
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra fuerte */
+    border-color: var(--color-azul-moderno);
+    background-color: rgba(30, 41, 59, 0.9);
+}
+
+/*  Iconos */
+.tool-card i {
+    font-size: 3rem; /* Tamaño grande del icono */
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(255,255,255, 0.2)); /* Un pequeño brillo */
+}
+
+/* Estilo del Texto */
+.tool-card span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-texto-suave);
+    letter-spacing: 0.5px;
+}
+
+/* Pequeño ajuste para móvil */
+@media (max-width: 600px) {
+    .toolbox-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en móvil */
+    }
+    .tool-card i { font-size: 2rem; } /* Iconos más pequeños en móvil */
+}
+
+/* Contenedor para centrar los botones */
+.action-buttons {
+    display: flex;
+    justify-content: center; 
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 25px; 
+    margin-bottom: 40px; 
+}
+
+/* Estilo base del botón */
+.btn {
+    text-decoration: none; /* Quita el subrayado de los links */
+    padding: 12px 25px; 
+    border-radius: 8px; 
+    font-family: sans-serif; 
+    font-weight: bold;
+    color: white; 
+    transition: all 0.3s ease; 
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre icono y texto */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra sutil */
+}
+
+
+.btn-linkedin {
+    background-color: #0077b5;
+    border: 2px solid #0077b5;
+}
+
+
+.btn-cv {
+    background-color: transparent; 
+    border: 2px solid #00b4d8; 
+    color: #00b4d8; 
+}
+
+
+.btn-linkedin:hover {
+    background-color: #005582;
+    transform: translateY(-3px);
+}
+
+.btn-cv:hover {
+    background-color: #00b4d8;
+    color: #0e1b2b; 
+    transform: translateY(-3px);
+}
