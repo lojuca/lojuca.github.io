@@ -1,26 +1,41 @@
-    /* --- 1. VARIABLES FÁCILES (CAMBIA LOS COLORES AQUÍ) --- */
+
         :root {
-            --color-fondo-pagina: #f0f2f5;       /* Gris muy clarito */
-            --color-tarjeta: #ffffff;            /* Blanco puro */
-            --color-texto-principal: #333333;    /* Gris oscuro para leer bien */
-            --color-texto-suave: #666666;        /* Para descripciones */
-            --color-azul-moderno: #3b82f6;       /* El color de los botones/enlaces */
-            --radio-bordes: 15px;                /* Qué tan redondas son las esquinas */
-            
-            /* Sombras: La clave para que se vea moderno */
-            --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --sombra-flotante: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+    /* --- COLORES MODO NOCHE (ESTRELLAS) --- */
+    --color-fondo-pagina: #0f172a;       /* Azul muy oscuro (casi negro) */
+    --color-tarjeta: #1e293b;            /* Azul grisáceo oscuro para las cajas */
+    
+    /* --- TEXTOS --- */
+    --color-texto-principal: #f1f5f9;    /* Blanco casi puro para leer bien */
+    --color-texto-suave: #94a3b8;        /* Gris azulado para descripciones */
+    --color-azul-moderno: #38bdf8;       /* Un azul cian eléctrico "Cyberpunk" */
+    
+    --radio-bordes: 15px;
+    
+    /* --- SOMBRAS (Más oscuras para que se noten en el fondo negro) --- */
+    --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --sombra-flotante: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+}
 
         /* --- 2. ESTILOS GENERALES --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            background-color: var(--color-fondo-pagina);
-            font-family: system-ui, -apple-system, sans-serif; /* Fuente del sistema, siempre se ve bien */
-            color: var(--color-texto-principal);
-            padding: 20px;
-        }
+    background-color: var(--color-fondo-pagina);
+    
+    /* TRUCO CSS: Creamos estrellas con degradados circulares */
+    background-image: 
+        radial-gradient(white 1px, transparent 1px), 
+        radial-gradient(white 2px, transparent 2px);
+        
+    /* Tamaño y posición para que parezcan aleatorias */
+    background-size: 50px 50px, 100px 100px;
+    background-position: 0 0, 25px 25px;
+    
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--color-texto-principal);
+    padding: 20px;
+    min-height: 100vh; /* Asegura que las estrellas cubran toda la pantalla */
+}
 
         /* --- 3. ENCABEZADO --- */
         header {
@@ -121,15 +136,15 @@
         /* --- 6. ESTILOS DE LOS RETOS (ACORDEÓN) --- */
         /* Usamos <details> y <summary> que son nativos de HTML */
         details {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background-color: #334155; /* Fondo gris oscuro para el reto cerrado */
+            border: 1px solid #475569;
             border-radius: 8px;
             margin-bottom: 10px;
             overflow: hidden;
         }
 
         summary {
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
             font-weight: bold;
             list-style: none; /* Quita el triangulito por defecto */
@@ -143,9 +158,10 @@
         details[open] summary::after { content: "-"; }
         
         details[open] summary {
-            background-color: white;
-            border-bottom: 1px solid #e2e8f0;
-        }
+    background-color: #1e293b; /* Color de la tarjeta al abrirse */
+    border-bottom: 1px solid #475569;
+    color: var(--color-azul-moderno);
+}
 
         .info-reto { padding: 10px; }
 
